@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Vehicle.Api.Models;
+using Vehicle.Api.Services;
 
 namespace Vehicle.Api.Controllers
 {
@@ -12,6 +13,13 @@ namespace Vehicle.Api.Controllers
     [ApiController]
     public class VehiclesController : ControllerBase
     {
+        private readonly IVehicleService _service;
+
+        public VehiclesController(IVehicleService service)
+        {
+            _service = service;
+        }
+
         [HttpGet]
         public async Task<ActionResult<IEnumerable<VehicleModel>>> Get()
         {
