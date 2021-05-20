@@ -23,36 +23,34 @@ namespace Vehicle.Api.Controllers
         [HttpGet]
         public async Task<ActionResult<IEnumerable<VehicleModel>>> Get()
         {
-            return Ok(await Task.FromResult(new List<VehicleModel>
-            {
-                new VehicleModel {Id = 1, Make="Tata", Model = "LPT1612", Owner="Ravindra", Year=2009},
-                new VehicleModel {Id = 1, Make="Honda", Model = "Unicorn", Owner="Sumit", Year=2016},
-                new VehicleModel {Id = 1, Make="Suzuki", Model = "Brezza", Owner="Devesh", Year=2020},
-            }));
+            return Ok(await _service.Get());
         }
 
         [HttpGet("{id:int}")]
         public async Task<ActionResult<VehicleModel>> Get(int id)
         {
-            return Ok(await Task.FromResult(new VehicleModel { Id = 1, Make = "Tata", Model = "LPT1612", Owner = "Ravindra", Year = 2009 }));
+            return Ok(await _service.Get(id));
         }
 
         [HttpPost]
         public async Task<IActionResult> Create(VehicleModel model)
         {
-            return await Task.FromResult(Ok());
+            await _service.Create(model);
+            return Ok();
         }
 
         [HttpPut]
         public async Task<IActionResult> Update(VehicleModel model)
         {
-            return await Task.FromResult(Ok());
+            await _service.Update(model);
+            return Ok();
         }
 
         [HttpDelete("{id:int}")]
         public async Task<IActionResult> Delete(int id)
         {
-            return await Task.FromResult(NoContent());
+            await _service.Delete(id);
+            return NoContent();
         }
     }
 }
