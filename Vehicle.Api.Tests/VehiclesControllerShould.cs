@@ -10,7 +10,7 @@ namespace Vehicle.Api.Tests
 {
     //  Developer friendly
     //  live-documentation
-    [Description("VehicleController should ")]
+    [TestFixture(Description = "VehicleController should ")]
     public class VehiclesControllerShould
     {
         private VehiclesController controller;
@@ -21,8 +21,7 @@ namespace Vehicle.Api.Tests
             this.controller = new VehiclesController();
         }
 
-        [Test]
-        [Description("return IEnumerable<VehicleModel> for GET")]
+        [Test(Description = "return IEnumerable<VehicleModel> for GET")]
         public async Task GetAll()
         {
             //  invoke the Get on the controller
@@ -41,8 +40,7 @@ namespace Vehicle.Api.Tests
         }
 
 
-        [Test]
-        [Description("return VehicleModel for GET with id")]
+        [Test(Description = "return VehicleModel for GET with id")]
         public async Task GetById()
         {
             //  invoke the Get on the controller
@@ -57,8 +55,7 @@ namespace Vehicle.Api.Tests
             Assert.IsNotNull(result);
         }
 
-        [Test]
-        [Description("create VehicleModel")]
+        [Test(Description = "create VehicleModel")]
         public async Task Create()
         {
             //  invoke the Get on the controller
@@ -67,8 +64,7 @@ namespace Vehicle.Api.Tests
             Assert.AreEqual(200, response.StatusCode);
         }
 
-        [Test]
-        [Description("update VehicleModel")]
+        [Test(Description = "update VehicleModel")]
         public async Task Update()
         {
             //  invoke the Get on the controller
@@ -77,8 +73,7 @@ namespace Vehicle.Api.Tests
             Assert.AreEqual(200, response.StatusCode);
         }
 
-        [Test]
-        [Description("delete by id")]
+        [Test(Description = "delete by id")]
         public async Task Delete()
         {
             //  invoke the Get on the controller
